@@ -1,4 +1,5 @@
 import turtle  # Bibliothèque turtle pour le dessin
+import time
 
 class SierpinskiCarpetIterative:
     def __init__(self, size, depth):
@@ -61,5 +62,11 @@ class SierpinskiCarpetIterative:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
+    start_time = time.time()
+
     sierpinski_iterative = SierpinskiCarpetIterative(size=800, depth=4)  # Création du tapis avec comme taille 800 et profondeur 4
     sierpinski_iterative.start_drawing()  # Démarre le dessin du tapis
+
+    end_time = time.time()
+    execution_time = (end_time - start_time) * 1000
+    print(f"Durée d'exécution: {execution_time:.2f} ms")
