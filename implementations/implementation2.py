@@ -17,7 +17,7 @@ class SierpinskiCarpetIterative:
             turtle.forward(size)  # Avance en focntion de la taille choisie
             turtle.right(90)  # Droite 90°
 
-    def generate_carpet(self):
+    def draw_carpet(self):
         """
         Génère le Tapis de façon itérative avec une Stack.
         """
@@ -54,7 +54,7 @@ class SierpinskiCarpetIterative:
         turtle.tracer(0, 0)  # Désactivation du traçage pour qe ça aille plus vite
         
         # Lance la génération du tapis de Sierpinski
-        self.generate_carpet()
+        self.draw_carpet()
         
         turtle.update()
         turtle.done()
