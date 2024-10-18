@@ -1,7 +1,6 @@
 import turtle  # Bibliothèque turtle pour le dessin
-import time
 
-class SierpinskiCarpet:
+class SierpinskiCarpetRecursive:
     def __init__(self, size, depth):
         self.size = size  # Taille du tapis
         self.depth = depth  # Profondeur
@@ -17,7 +16,7 @@ class SierpinskiCarpet:
         self.t.goto(x, y)  # Déplace la tortue à la position (x, y)
         self.t.pendown()  # Descendre le stylo pour dessiner
         for _ in range(4):  # Dessine un carré
-            self.t.forward(size)  # Avance en focntion de la taille choisie
+            self.t.forward(size)  # Avance en fonction de la taille choisie
             self.t.right(90)  # Droite 90°
 
     def draw_carpet(self, x, y, size, depth):
@@ -35,26 +34,3 @@ class SierpinskiCarpet:
                         continue  # Comme ça le centre sera vide
                     # Dessiner les sous-carrés récursivement
                     self.draw_carpet(x + i * new_size, y - j * new_size, new_size, depth - 1)
-
-    def start_drawing(self):
-        """
-        Démarre le processus de dessin du tapis.
-        """
-        self.t.penup()  # Lève le stylo
-        self.t.goto(-self.size // 2, self.size // 2)  # Centre le tapis sur l'écran
-        self.t.pendown()  # Abaisse le stylo
-        # Commence à dessiner le tapis
-        self.draw_carpet(-self.size // 2, self.size // 2, self.size, self.depth)
-        turtle.update()
-        turtle.done()
-
-if __name__ == "__main__":
-    start_time = time.time()
-
-    # Exécution du dessin. Avec une grande taille pour voire les sous-carrés
-    carpet = SierpinskiCarpet(size=800, depth=4)  # Création du tapis avec comme taille 800 et profondeur 4
-    carpet.start_drawing()  # Démarre le dessin du tapis
-
-    end_time = time.time()
-    execution_time = (end_time - start_time) * 1000
-    print(f"Durée d'exécution: {execution_time:.2f} ms")

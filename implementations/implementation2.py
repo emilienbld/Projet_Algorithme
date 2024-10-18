@@ -1,5 +1,4 @@
 import turtle  # Bibliothèque turtle pour le dessin
-import time
 
 class SierpinskiCarpetIterative:
     def __init__(self, size, depth):
@@ -15,7 +14,7 @@ class SierpinskiCarpetIterative:
         turtle.goto(x, y)  # Déplace la tortue à la position (x, y)
         turtle.pendown()  # Descendre le stylo pour dessiner
         for _ in range(4):  # Dessine un carré
-            turtle.forward(size)  # Avance en focntion de la taille choisie
+            turtle.forward(size)  # Avance en fonction de la taille choisie
             turtle.right(90)  # Droite 90°
 
     def draw_carpet(self):
@@ -45,28 +44,3 @@ class SierpinskiCarpetIterative:
                 # Empile les 8 sous-carrés avec leurs nouvelles coordonnées et tailles
                 for dx, dy in offsets:
                     self.stack.append((x + dx, y + dy, new_size, current_depth + 1))
-
-    def start_drawing(self):
-        """
-        Démarre le processus de dessin du tapis.
-        """
-        turtle.speed(0)  # Vitesse de dessin
-        turtle.hideturtle()  # Cache le pinceau
-        turtle.tracer(0, 0)  # Désactivation du traçage pour qe ça aille plus vite
-        
-        # Lance la génération du tapis de Sierpinski
-        self.draw_carpet()
-        
-        turtle.update()
-        turtle.done()
-
-# Exemple d'utilisation
-if __name__ == "__main__":
-    start_time = time.time()
-
-    sierpinski_iterative = SierpinskiCarpetIterative(size=800, depth=4)  # Création du tapis avec comme taille 800 et profondeur 4
-    sierpinski_iterative.start_drawing()  # Démarre le dessin du tapis
-
-    end_time = time.time()
-    execution_time = (end_time - start_time) * 1000
-    print(f"Durée d'exécution: {execution_time:.2f} ms")
