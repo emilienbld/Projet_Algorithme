@@ -2,6 +2,10 @@
 
 Ce projet propose deux implémentations pour générer et visualiser un **Tapis de Sierpinski**, une figure fractale. L'objectif est de comparer les deux approches algorithmique (récursive et itérative) en termes de performance et complexité.
 
+Voilà une représentation du Tapis de Sierpinski fait pour les deux implémentations.
+![image](https://github.com/user-attachments/assets/38c0e3d8-d1cb-4170-b7ee-9e0b630957dd)
+
+
 ---
 
 ## 1. Choix de l'algorithme
